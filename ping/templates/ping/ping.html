@@ -9,16 +9,16 @@
 <div style="text-align:center;"><h1>Server Status</h1>
 {% if prod %}
 <div style="display: inline-block; padding-left: 50px; padding-right: 50px;">
-    <table style="margin: auto;">
+    <table>
     <tr><h3>Production</h3></tr>
     {% for host in prod %}
     <tr>
         {% if host.is_up %}
-        <td style="padding: 5px;"><div style="background-color: hsla(103,88%,47%,1); text-align:center; vertical-align: center; border-radius: 50%; width: 25px; height: 25px;">⇡</div></td>
+        <td class="is_up">⇡</td>
         {% elif not host.is_up %}
-        <td style="padding: 5px;"><div style="background-color: hsla(0,100%,50%,0.7); text-align:center; vertical-align: center; border-radius: 50%; width: 25px; height: 25px;">⇣</div></td>
+        <td class="is_down"><div>⇣</div></td>
         {% endif %}
-        <td>{{host.host_name}}</td>
+        <td>{{host.host_name}}<br></td>
     </tr>
     {% endfor %}
     </table>
@@ -27,14 +27,14 @@
 
 {% if dev %}
 <div style="display: inline-block; padding-left: 50px; padding-right: 50px;">
-    <table style="margin: auto;">
+    <table>
     <tr><h3>Development</h3></tr>
     {% for host in dev %}
     <tr>
         {% if host.is_up %}
-        <td style="padding: 5px;"><div style="background-color: hsla(103,88%,47%,1); text-align:center; vertical-align: center; border-radius: 50%; width: 25px; height: 25px;">⇡</div></td>
+        <td class="is_up">⇡</td>
         {% elif not host.is_up %}
-        <td style="padding: 5px;"><div style="background-color: hsla(0,100%,50%,0.7); text-align:center; vertical-align: center; border-radius: 50%; width: 25px; height: 25px;">⇣</div></td>
+        <td class="is_down">⇣</td>
         {% endif %}
         <td>{{host.host_name}}</td>
     </tr>
@@ -45,14 +45,14 @@
 
 {% if misc %}
 <div style="display: inline-block; padding-left: 50px; padding-right: 50px;">
-    <table style="margin: auto;">
+    <table>
     <tr><h3>Miscellaneous</h3></tr>
     {% for host in misc %}
     <tr>
         {% if host.is_up %}
-        <td style="padding: 5px;"><div style="background-color: hsla(103,88%,47%,1); text-align:center; vertical-align: center; border-radius: 50%; width: 25px; height: 25px;">⇡</div></td>
+        <td class="is_up">⇡</td>
         {% elif not host.is_up %}
-        <td style="padding: 5px;"><div style="background-color: hsla(0,100%,50%,0.7); text-align:center; vertical-align: center; border-radius: 50%; width: 25px; height: 25px;">⇣</div></td>
+        <td class="is_down">⇣</td>
         {% endif %}
         <td>{{host.host_name}}</td>
     </tr>
@@ -65,13 +65,13 @@
 {% if sites %}
 <div style="text-align:center;"><h1>Website Status</h1>
 <div style="display: block; padding-left: 50px; padding-right: 50px;">
-    <table style="margin: auto;">
+    <table>
     {% for site in sites %}
     <tr>
         {% if site.is_up %}
-        <td style="padding: 5px;"><div style="background-color: hsla(103,88%,47%,1); text-align:center; vertical-align: center; border-radius: 50%; width: 25px; height: 25px;">⇡</div></td>
+        <td class="is_up">⇡</td>
         {% elif not site.is_up %}
-        <td style="padding: 5px;"><div style="background-color: hsla(0,100%,50%,0.7); text-align:center; vertical-align: center; border-radius: 50%; width: 25px; height: 25px;">⇣</div></td>
+        <td class="is_down">⇣</td>
         {% endif %}
         <td>{{site.alias}} {{site.category}} ( <a href="{{site.url}}">link</a> )</td>
     </tr>
