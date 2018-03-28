@@ -46,7 +46,7 @@ def index(request):
 
 def ping_server(host):
     'Pings given a host'
-    return subprocess.getstatusoutput('ping -c 1 %s' % host)[0] == 0
+    return subprocess.getstatusoutput('ping -c 1 -t 10 %s' % host)[0] == 0
 
 def ping_website(url):
     'Pings given website'
